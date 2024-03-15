@@ -3,7 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\PersonController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\exportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +28,7 @@ Route::get('/digital_clock',function(){
 });
 
 Route::get('/hierarchical-data', [PersonController::class, 'showHierarchy'])->name('hierarchical.data');
+Route::get('/export-leads', [exportController::class,'exportLeads'])->name('export.leads');
+Route::get('/export', function () {
+    return view('export');
+});
